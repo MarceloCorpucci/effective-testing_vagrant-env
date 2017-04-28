@@ -85,6 +85,7 @@ Vagrant.configure("2") do |config|
      cd /opt/
      git clone git://github.com/MarceloCorpucci/effective-testing.git
      pip install -r /opt/effective-testing/requirements.txt
+     sudo chown -R $USER:$USER /opt/effective-testing
    SHELL
 
   #config.vm.provision :chef_solo do |chef|
