@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
 
   # forward port guest machine:5000 -> host machine:5000
   # port 5000 is default for flask web app
-  config.vm.network "forwarded_port", guest: 8086, host: 8081
+  config.vm.network "forwarded_port", guest: 8080, host: 8081
   config.vm.network "forwarded_port", guest: 5000, host: 5000
 
   # Create a private network, which allows host-only access to the machine
