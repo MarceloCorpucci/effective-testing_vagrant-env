@@ -92,9 +92,4 @@ Vagrant.configure("2") do |config|
      # sudo apt-get -y install oracle-java8-installer
    SHELL
 
-  #config.vm.provision :chef_solo do |chef|
-    #chef.cookbooks_path = "/home/marcelo/chef_resources/cookbooks"
-    #chef.run_list = ["recipe[poise-python]"]
-    #chef.add_recipe "poise-python"
-  #end
 end
