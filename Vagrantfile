@@ -82,10 +82,14 @@ Vagrant.configure("2") do |config|
      apt-get update
      apt-get install -y jenkins
      apt-get install -y maven
-     cd /opt/
+     cd /home/vagrant/
      git clone git://github.com/MarceloCorpucci/effective-testing.git
-     pip install -r /opt/effective-testing/requirements.txt
-     sudo chown -R $USER:$USER /opt/effective-testing
+     pip install -r /home/vagrant/effective-testing/requirements.txt
+     sudo chown -R $USER:$USER /home/vagrant/effective-testing
+
+     # sudo add-apt-repository ppa:webupd8team/java
+     # sudo apt-get update
+     # sudo apt-get -y install oracle-java8-installer
    SHELL
 
   #config.vm.provision :chef_solo do |chef|
