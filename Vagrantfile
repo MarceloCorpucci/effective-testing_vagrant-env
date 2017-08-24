@@ -77,19 +77,10 @@ Vagrant.configure("2") do |config|
      apt-get install -y git
      apt-get install python-setuptools
      easy_install pip
-     wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | apt-key add -
-     sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-     apt-get update
-     apt-get install -y jenkins
-     apt-get install -y maven
      cd /home/vagrant/
      git clone git://github.com/MarceloCorpucci/effective-testing.git
      pip install -r /home/vagrant/effective-testing/requirements.txt
      sudo chown -R $USER:$USER /home/vagrant/effective-testing
-
-     # sudo add-apt-repository ppa:webupd8team/java
-     # sudo apt-get update
-     # sudo apt-get -y install oracle-java8-installer
    SHELL
 
 end
