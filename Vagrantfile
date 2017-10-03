@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   #config.vm.box = "ubuntu/trusty64"
-  config.vm.box = "ubuntu/precise64"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.define :blog_env do |t|
   end
 
@@ -73,7 +73,17 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
+     sudo apt-get install -y python-software-properties
+     sudo add-apt-repository -y ppa:webupd8team/java
      apt-get update
+     echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+     echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+     sudo apt-get install -y oracle-java8-installer
+     sudo apt-get install -y oracle-java8-set-default
+     wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+     sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+     apt-get update
+     sudo apt-get install -y jenkins
      apt-get install -y git
      apt-get install python-setuptools
      easy_install pip
